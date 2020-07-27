@@ -9,7 +9,7 @@ from plotly.subplots import make_subplots
 import plotly
 
 
-@st.cache()
+@st.cache
 def plot_state(df, state):
     fig = make_subplots(3,1, subplot_titles=["Top 10 Confirmed Cities",
                                              "Top 10 Deaths Cities",
@@ -108,8 +108,9 @@ def main():
         break
     df = df[df["Country_Region"] == "US"]
     state = st.sidebar.selectbox("Choose state", sorted(df["Province_State"].unique().tolist()))
-    viz = st.selectbox("Choose visualization", ["Summary", "Top States"])
+    st.subheader(state)
+    viz = st.selectbox("Choose visualization", ["Summary", "Top Cities"])
     if viz == "Summary":
         st.plotly_chart(state_summary(df, state))
-    elif viz == "Top States":
+    elif viz == "Top Cities":
         st.plotly_chart(plot_state(df, state))
