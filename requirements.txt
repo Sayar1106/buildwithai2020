@@ -1,5 +1,5 @@
 plotly==4.5.0
-numpy==1.18.1
+numpy==1.22.0
 statsmodels==0.10.2
 seaborn==0.8.1
 matplotlib==2.2.2
